@@ -15,6 +15,7 @@ jobs:
         with:
           files: ./
           dest: result.zip
+      - run: mkdir staging && cp result.zip staging
       - uses: actions/upload-artifact@v2
         with:
           name: Package
