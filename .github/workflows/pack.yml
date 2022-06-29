@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: vimtor/action-zip@v1
         with:
-          files: ./
+          files: ./*
           dest: result.zip
       - run: mkdir staging && cp result.zip staging
       - uses: actions/upload-artifact@v2
