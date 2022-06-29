@@ -1,0 +1,21 @@
+name: リソースパック圧縮
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  zip-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: vimtor/action-zip@v1
+        with:
+          files: ./
+          dest: result.zip
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: result.zip
